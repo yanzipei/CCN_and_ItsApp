@@ -25,7 +25,7 @@ class CCN(object):
 
 
 if __name__ == '__main__':
-    ccn = CCN(y_path='./data_backup/y.npy')
+    ccn = CCN(y_path='./data/y.npy')
     img = np.random.randint(0, 255, (50, 50, 3)).astype(np.uint8)
     print(img.shape)
     pred_y = ccn(img)

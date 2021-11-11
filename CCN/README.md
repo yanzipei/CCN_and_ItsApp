@@ -1,37 +1,84 @@
-# Note
+# Experiments on CCN
 
-ccn.py: classifier with reference from rectified results
+## Introduction
+This repository contains the code for experiments on CCN.
 
-config.py: training configurations for classifiers: MLP, ColorMLP.
+## Usage
+### Initialize
+unzip `data/data.zip` to export the data.
 
-generate_aug_data.py: generate augmented data for training classifiers.
+### Train SVM
+Use the default parameters in `train_svm.py`
+```
+python train_svm.py --data ./data/aug_data.npy --log_dir ./runs/train/svm
+```
 
-generate_cleaned_data.py: generate cleaned data for training classifiers.
+### Train MLP
+Only supports single GPU, uses the default parameters.
+```
+python train_mlp.py --data ./data/aug_data.npy --log_dir ./runs/train/mlp
+```
 
-get_rgb_mean_and_std.py: calculate mean and std
+### Train ColorMLP
+Only supports single GPU, uses the default parameters.
+```
+python train_color_mlp.py --data ./data/aug_data.npy --log_dir ./runs/train/color_mlp
+```
 
-predict_by_nearest_neighbor.py: do prediction on RGB cube with reference to the nearest neighbor by using cleaned data
+## Structure
+```text
+.
+├── README.md
+├── data
+│   ├── data.zip
+├── ccn.py
+├── config.py
+├── generate_aug_data.py
+├── generate_cleaned_data.py
+├── get_rgb_mean_and_std.py
+├── modules
+│   ├── color_mlp.py
+│   ├── gat_loss.py
+│   └── mlp.py
+├── predict_by_nearest_neighbor.py
+├── rectify_data.py
+├── rgb_channel_adj.py
+├── train_color_mlp.py
+├── train_mlp.py
+├── train_svm.py
+└── util.py
+```
+## Description
+`data/data.zip`: zip file of cleaned data, augmented data and final rectified result.
 
-read_log.py: read log
+`ccn.py`: classifier with reference from rectified results.
 
-read_tuning_log.py: read tuning log
+`config.py`: training configurations for classifiers: MLP, ColorMLP.
 
-rectify_data.py: rectify the classification results of ColorMLP
+`generate_aug_data.py`: generate augmented data for training classifiers.
 
-rgb_channel_adj.py: generate adjacent matrix on RGB channel
+`generate_cleaned_data.py`: generate cleaned data for training classifiers.
 
-train_color_mlp.py: train ColorMLP
+`get_rgb_mean_and_std.py`: calculate mean and std.
 
-train_mlp.py: train MLP
+`modules/color_mlp.py`: ColorMLP model.
 
-train_svm.py: train SVM
+`modules/gat_loss.py`: loss in Eq.(5)
 
-tune_color_mlp.py: tune the hyper-parameters of ColorMLP with n-folds cross validation
+`modules/mlp.py`: MLP model.
 
-tune_mlp.py: tune the hyper-parameters of MLP with n-folds cross validation
+`predict_by_nearest_neighbor.py`: do prediction on RGB cube with reference to the nearest neighbor by using cleaned data.
 
-tune_svm.py: tune the hyper-parameters of SVM with n-folds cross validation
+`rectify_data.py`: rectify the classification results of ColorMLP.
 
-util.py: common tool functions
+`rgb_channel_adj.py`: generate adjacent matrix on RGB channel.
+
+`train_color_mlp.py`: train ColorMLP.
+
+`train_mlp.py`: train MLP.
+
+`train_svm.py`: train SVM.
+
+`util.py`: common tool functions.
 
 
