@@ -6,6 +6,42 @@ __all__ = ['get_rgb_channel_adj']
 classes = ['Black', 'Blue', 'Brown', 'Gray', 'Green', 'Orange', 'Pink', 'Purple', 'Red', 'White', 'Yellow']
 classes.sort()
 
+# red_channel_color_dict = {'Red': ['Yellow', 'Brown', 'Orange', 'Pink', 'Purple', 'White', 'Gray'],
+#                           'Green': ['Blue', 'Black'],
+#                           'Blue': ['Green', 'Black'],
+#                           'Yellow': ['Red', 'Brown', 'Orange', 'Pink', 'Purple', 'White', 'Gray'],
+#                           'Brown': ['Red', 'Yellow', 'Purple', 'Gray'],
+#                           'Orange': ['Red', 'Yellow', 'Pink', 'Purple', 'White', 'Gray'],
+#                           'Pink': ['Red', 'Yellow', 'Orange', 'Purple', 'White', 'Gray'],
+#                           'Purple': ['Red', 'Yellow', 'Brown', 'Orange', 'Pink', 'White', 'Gray'],
+#                           'White': ['Red', 'Yellow', 'Orange', 'Pink', 'Purple'],
+#                           'Gray': ['Red', 'Yellow', 'Orange', 'Pink', 'Purple'],
+#                           'Black': ['Green', 'Blue']}
+#
+# green_channel_color_dict = {'Red': ['Blue', 'Purple', 'Black'],
+#                             'Green': ['Yellow', 'Brown', 'Orange', 'Pink', 'White', 'Gray'],
+#                             'Blue': ['Red', 'Purple', 'Black'],
+#                             'Yellow': ['Green', 'Brown', 'Orange', 'Pink', 'White', 'Gray'],
+#                             'Brown': ['Green', 'Yellow', 'Gray'],
+#                             'Orange': ['Green', 'Yellow', 'Pink', 'Gray'],
+#                             'Pink': ['Green', 'Yellow', 'Orange', 'White', 'Gray'],
+#                             'Purple': ['Red', 'Blue', 'Black'],
+#                             'White': ['Green', 'Yellow', 'Pink'],
+#                             'Gray': ['Green', 'Yellow', 'Brown', 'Orange', 'Pink'],
+#                             'Black': ['Red', 'Blue', 'Purple']}
+#
+# blue_channel_color_dict = {'Red': ['Green', 'Yellow', 'Brown', 'Orange', 'Black'],
+#                            'Green': ['Red', 'Yellow', 'Brown', 'Orange', 'Black'],
+#                            'Blue': ['Pink', 'Purple', 'White', 'Gray'],
+#                            'Yellow': ['Red', 'Green', 'Brown', 'Orange', 'Black'],
+#                            'Brown': ['Red', 'Green', 'Yellow', 'Orange', 'Black'],
+#                            'Orange': ['Red', 'Green', 'Yellow', 'Brown', 'Black'],
+#                            'Pink': ['Blue', 'Purple', 'White'],
+#                            'Purple': ['Blue', 'Pink', 'White', 'Gray'],
+#                            'White': ['Blue', 'Pink', 'Purple'],
+#                            'Gray': ['Blue', 'Purple'],
+#                            'Black': ['Red', 'Green', 'Yellow', 'Brown', 'Orange']}
+
 red_channel_color_dict = {'Red': ['Yellow', 'Brown', 'Orange', 'Pink', 'Purple', 'White'],
                           'Green': ['Blue', 'Black'],
                           'Blue': ['Green', 'Black'],

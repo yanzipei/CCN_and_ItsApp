@@ -3,7 +3,7 @@ for l0 in "${lambda[@]}"; do
   for l1 in "${lambda[@]}"; do
     for l2 in "${lambda[@]}"; do
       echo "lambda: [${l0}, ${l1}, ${l2}]"
-      python tune_color_mlp.py --data ./data/original_data.npy --log_dir ./runs/tune/color_mlp/original_data --l "${l0}" "${l1}" "${l2}" --hidden_dim 18 --epochs 5000 --lr 0.1 --wd 0
+      python tune_color_mlp.py --data ./data/cleaned_data.npy --log_dir ./runs/tune/color_mlp --l "${l0}" "${l1}" "${l2}" --hidden_dim 18 --epochs 5000 --lr 0.1 --wd 0
     done
   done
 done

@@ -24,7 +24,7 @@ def main(args):
     save_yaml_file(log_dir, args, 'config.yml')
     configure(log_dir)
 
-    data = np.load(args.log_data)
+    data = np.load(args.data)
     X = data[:, 0:3]
     y = data[:, 3]
     # t = data[:, 4]
@@ -76,7 +76,7 @@ def main(args):
 def train(train_X, train_y, network, criterion, optimizer, epoch):
     network.train()
     logits = network(train_X)
-    prec1, prec5 = accuracy(logits.log_data, train_y, topk=(1, 5))
+    prec1, prec5 = accuracy(logits.data, train_y, topk=(1, 5))
     loss = criterion(logits, train_y)
 
     # backward propagation

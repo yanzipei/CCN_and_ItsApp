@@ -20,7 +20,7 @@ def main(args):
     log_dir += datetime.today().strftime('%Y-%m-%d-%H:%M:%S')
     save_yaml_file(log_dir, args, 'config.yml')
 
-    data = np.load(args.log_data)
+    data = np.load(args.data)
     X = data[:, 0:3]
     y = data[:, 3]
     # t = data[:, 4]

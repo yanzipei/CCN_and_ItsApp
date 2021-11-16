@@ -29,7 +29,7 @@ def main(args):
     log_dir += datetime.today().strftime('%Y-%m-%d-%H:%M:%S')
     save_yaml_file(log_dir, args, 'config.yml')
 
-    data = np.load(args.log_data)
+    data = np.load(args.data)
     X = data[:, 0:3]
     y = data[:, 3]
     # t = data[:, 4]
@@ -116,7 +116,7 @@ def main(args):
     # save config
     result_dict = {}
     logits = torch.cat(logits, dim=0).cpu()
-    top1_acc, top5_acc = accuracy(logits.log_data, torch.from_numpy(true_y), topk=(1, 5))
+    top1_acc, top5_acc = accuracy(logits.data, torch.from_numpy(true_y), topk=(1, 5))
     result_dict['top1_acc'], result_dict['top5_acc'] = top1_acc.item(), top5_acc.item()
     save_yaml_file(log_dir, result_dict, 'result.yml')
 
@@ -126,7 +126,7 @@ def main(args):
 def train(train_X, train_y, network, criterion, g_criterion, optimizer, writer, epoch):
     network.train()
     logits = network(train_X)
-    prec1, prec5 = accuracy(logits.log_data, train_y, topk=(1, 5))
+    prec1, prec5 = accuracy(logits.data, train_y, topk=(1, 5))
     cel = criterion(logits, train_y)
     gl = g_criterion(network.get_w())
     loss = cel + gl
@@ -147,7 +147,7 @@ def train(train_X, train_y, network, criterion, g_criterion, optimizer, writer, 
 def test(test_X, test_y, network, criterion, g_criterion, writer, epoch):
     network.eval()
     logits = network(test_X)
-    prec1, prec5 = accuracy(logits.log_data, test_y, topk=(1, 5))
+    prec1, prec5 = accuracy(logits.data, test_y, topk=(1, 5))
     cel = criterion(logits, test_y)
     gl = g_criterion(network.get_w())
     loss = cel + gl
