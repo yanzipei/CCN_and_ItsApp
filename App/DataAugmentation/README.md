@@ -9,20 +9,20 @@ Download CIFAR-10 and CIFAR-100 datasets. \
 Download ImageNet, use this script to extract data: `https://gist.github.com/BIGBALLON/8a71d225eff18d88e469e6ea9b39cef4`
 
 ### Image Classification on CIFAR-10/100:
-Network only be trained on a single instance with a single GPU support!
+Network is trained on a single instance with a single GPU support!
 
-Networks: \
-inception_v3, \
+Networks: 
+inception_v3, 
 resnet20, resnet32, resnet44, resnet56, resnet110 \
 densenet_100_12
 
-Datasets: \
-cifar10, \
+Datasets: 
+cifar10, 
 cifar100
 
-Augmentation: \
-none, \
-cj, \
+Augmentation: 
+none, 
+cj, 
 pcj
 
 e.g., train resnet20 on cifar10 with pcj augmentation, other settings and parameters are the default.
@@ -32,15 +32,15 @@ python train_cifar.py --arch resnet10 --dataset cifar10 --dataset_dir ./Dataset 
 
 ### Image Classification on ImageNet:
 
-Network only be trained on a single instance with multiply GPUs support!
+Network is trained on a single instance with multiply GPUs support!
 
-Networks: \
-ResNet-50, ResNet-101, ResNet-152 \
+Networks: 
+ResNet-50, ResNet-101, ResNet-152 
 DenseNet-BC-121
 
-Augmentation: \
-none, \
-cj, \
+Augmentation: 
+none, 
+cj, 
 pcj
 
 e.g. train resnet50 on imagenet with pcj augmentation, other settings and parameters are the default.
