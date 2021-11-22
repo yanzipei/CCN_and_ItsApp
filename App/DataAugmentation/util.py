@@ -74,4 +74,4 @@ def print_num_params(net: nn.Module):
     for x in filter(lambda p: p.requires_grad, net.parameters()):
         total_params += np.prod(x.data.numpy().shape)
     print("Total number of params:", total_params)
-    print("Total layers: ", len(list(filter(lambda p: p.requires_grad and len(p.log_data.size()) > 1, net.parameters()))))
+    print("Total layers: ", len(list(filter(lambda p: p.requires_grad and len(p.data.size()) > 1, net.parameters()))))

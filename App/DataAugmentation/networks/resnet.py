@@ -150,7 +150,8 @@ if __name__ == "__main__":
     num_classes = 10
     for net_name in __all__:
         if net_name.startswith('resnet'):
-            from DA.util import print_num_params
+            # from util import print_num_params
+            from App.DataAugmentation.util import print_num_params
 
             print(net_name)
 
